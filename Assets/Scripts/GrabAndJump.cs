@@ -1,28 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GrabAndJump : MonoBehaviour {
+public class GrabAndJump : Jump {
 
 	private bool hanging = false;
 
-	void Start () {
-	
-	}
 
 	void OnTriggerStay2D(Collider2D other)
 	{
-		if(other.tag == "rocks")
+		if(other.CompareTag ("rocks"))
 		{
 			hanging = true;
 			if(Input.GetKeyUp (KeyCode.Space) )
 			{
-
+				Jumped ();
 			}
 		}
-	}
-
-	void OnKeyUp()
-	{
-		
 	}
 }

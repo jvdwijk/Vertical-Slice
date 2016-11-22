@@ -6,12 +6,13 @@ public class Jump : MonoBehaviour
 {
     [SerializeField]
     private bool grounded = true;
+	[SerializeField]
     private float jumpPower = 190f;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
   
 
@@ -19,12 +20,17 @@ public class Jump : MonoBehaviour
     {
             if (grounded && Input.GetButtonDown("Jump"))
             {
-                rb.AddForce(transform.up * jumpPower);
-                grounded = false;
+			Jumped ();
             }            
             else if (!grounded && rb.velocity.y == 0)
             {
                 grounded = true;
             }
     }
+
+	protected void Jumped()
+	{
+		rb.AddForce(transform.up * jumpPower);
+		grounded = false;
+	}
 }
