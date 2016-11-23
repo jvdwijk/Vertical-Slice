@@ -7,11 +7,11 @@ public class Jump : MonoBehaviour
     [SerializeField]
     private bool grounded = true;
     private float jumpPower = 190f;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
   
 
