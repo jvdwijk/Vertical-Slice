@@ -28,8 +28,7 @@ public class Jump : MonoBehaviour
 
 	protected void Jumped()
 	{
-		//rb.AddForce(transform.up * jumpPower);
-		rb.MovePosition ();
+		rb.AddForce(transform.up * jumpPower);
 		grounded = false;
 	}
 }
