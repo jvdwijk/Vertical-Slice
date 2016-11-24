@@ -13,7 +13,7 @@ public class GrabAndJump : Jump {
 			hanging = true;
 			if(Input.GetKeyUp (KeyCode.Space) )
 			{
-				//Jumped ();
+				Jumped ();
 			}
 		}
 	}

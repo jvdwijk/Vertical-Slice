@@ -13,19 +13,24 @@ public class Jump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-  
 
     void Update()
     {
             if (grounded && Input.GetButtonDown("Jump"))
             {
-                rb.AddForce(transform.up * jumpPower);
-                grounded = false;
+				Jumped ();
             }            
             else if (!grounded && rb.velocity.y == 0)
             {
                 grounded = true;
             }
     }
+
+	protected void Jumped()
+	{
+		//rb.AddForce(transform.up * jumpPower);
+		rb.MovePosition ();
+		grounded = false;
+	}
 }
 
