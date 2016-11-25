@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-
+	private float timer;
     public Renderer rend;
     public float movementSpeed = 10f;
     public Rigidbody2D rb;
@@ -20,25 +20,15 @@ public class Enemy : MonoBehaviour
 
      void Update()
     {
-    
-
-
-   Vector2 movement = new Vector2(1, 0.0f);
-
+   		Vector2 movement = new Vector2(1, 0.0f);
         rb.velocity = movement * movementSpeed;
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "wall1")
+        if (collision.gameObject.tag == "wall")
         {
-            movementSpeed = -10f;
-
-           Debug.Log("Collided");
-           
-        }
-        else if(collision.gameObject.tag == "wall2")
-            {
-            movementSpeed = 10;
+            movementSpeed *= -1;           
         }
     }
 }
