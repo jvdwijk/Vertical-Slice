@@ -3,11 +3,11 @@ using System.Collections;
 
 
 public class Jump : MonoBehaviour
-{
+{ 
     [SerializeField]
     private bool grounded = true;
     private float jumpPower = 190f;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     void Start()
     {
@@ -16,6 +16,7 @@ public class Jump : MonoBehaviour
 
     void Update()
     {
+
             if (grounded && Input.GetButtonDown("Jump"))
             {
 				Jumped ();
