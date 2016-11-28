@@ -10,9 +10,7 @@ public class GrabAndJump : Jump {
     {
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
-    }
-
-        
+    }        
 
     void Update()
     {
@@ -23,6 +21,7 @@ public class GrabAndJump : Jump {
                 Jumped();
                 hanging = false;
                 rb.gravityScale = .5f;
+				movement.enabled = true;
             }
         }
     }
@@ -32,6 +31,7 @@ public class GrabAndJump : Jump {
         if(other.CompareTag("rocks"))
         {
             Debug.Log("klfea");
+			movement.enabled = false;
             hanging = true;
             rb.velocity = Vector3.zero;
             rb.gravityScale = 0;
