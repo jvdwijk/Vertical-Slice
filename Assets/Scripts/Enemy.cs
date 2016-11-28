@@ -8,8 +8,6 @@ public class Enemy : MonoBehaviour
     public float movementSpeed = 10f;
     public Rigidbody2D rb;
     int random;
-    private int pushDir = 10;
-    private int pushBackSpeed = 1;
 
     void Start()
     {
