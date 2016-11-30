@@ -28,5 +28,9 @@ public class Enemy : MonoBehaviour
         {
             movementSpeed *= -1;           
         }
+        else if (collision.gameObject.tag == "sukkel")
+        {
+            movementSpeed *= -1;
+        }
     }
 }
