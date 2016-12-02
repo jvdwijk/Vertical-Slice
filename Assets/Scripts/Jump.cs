@@ -6,7 +6,7 @@ public class Jump : MonoBehaviour
 { 
     [SerializeField]
     private bool grounded = true;
-    private float jumpPower = 190f;
+    private float jumpPower = 300f;
     protected Rigidbody2D rb;
 
     void Start()
