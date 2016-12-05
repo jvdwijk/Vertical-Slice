@@ -20,7 +20,7 @@ public class GrabAndJump : Jump {
             {
                 Jumped();
                 hanging = false;
-                rb.gravityScale = .5f;
+                rb.gravityScale = .20f;
 				movement.enabled = true;
             }
         }
@@ -34,7 +34,7 @@ public class GrabAndJump : Jump {
 			movement.enabled = false;
             hanging = true;
             rb.velocity = Vector3.zero;
-            rb.gravityScale = 0;
+            rb.gravityScale =0;
         }
     }
 }
