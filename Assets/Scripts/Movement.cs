@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
     [SerializeField]
-    private int speed = 5;
+    private float speed = 5;
     private Rigidbody2D rb;
 	private Animator anim;
     

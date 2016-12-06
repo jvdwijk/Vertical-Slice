@@ -24,7 +24,7 @@ public class GrabAndJump : Jump {
             {
                 Jumped();
                 hanging = false;
-                rb.gravityScale = .5f;
+                rb.gravityScale = 2.5f;
 				movement.enabled = true;
                 anim.SetBool("isSwinging", false);
                 anim.SetBool("isJumping", true);
