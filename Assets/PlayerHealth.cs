@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("hoer");
         if (other.transform.tag == "sukkel")
         {
             
