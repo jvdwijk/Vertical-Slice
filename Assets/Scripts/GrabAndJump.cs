@@ -12,7 +12,7 @@ public class GrabAndJump : Jump {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
-        //jumpPower = 0;
+        rb.gravityScale = 2.5f;
     }        
 
     void Update()
@@ -24,7 +24,7 @@ public class GrabAndJump : Jump {
             {
                 Jumped();
                 hanging = false;
-                rb.gravityScale = 0.5f;
+                rb.gravityScale = 2.5f;
 				movement.enabled = true;
                 anim.SetBool("isSwinging", false);
                 anim.SetBool("isJumping", true);
