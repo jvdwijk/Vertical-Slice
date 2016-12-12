@@ -5,7 +5,6 @@ public class GrabAndJump : Jump {
 
 	private bool hanging = false;
     private Movement movement;
-    private Animator anim;
 
     void Start()
     {
@@ -36,7 +35,6 @@ public class GrabAndJump : Jump {
     {
         if(other.CompareTag("rocks"))
         {
-			grounded = true;
 			movement.enabled = false;
             hanging = true;
             rb.velocity = Vector3.zero;
