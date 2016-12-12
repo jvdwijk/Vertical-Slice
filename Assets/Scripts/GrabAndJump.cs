@@ -36,6 +36,7 @@ public class GrabAndJump : Jump {
     {
         if(other.CompareTag("rocks"))
         {
+			grounded = true;
 			movement.enabled = false;
             hanging = true;
             rb.velocity = Vector3.zero;

@@ -4,8 +4,7 @@ using System.Collections;
 
 public class Jump : MonoBehaviour
 { 
-    [SerializeField]
-    private bool grounded = true;
+	protected bool grounded = true;
 	[SerializeField]
 	protected float jumpPower = 1750f;
     protected Rigidbody2D rb;
@@ -14,6 +13,7 @@ public class Jump : MonoBehaviour
     private Vector2 playerCurrentPosition;
     private Vector3 startCast;
     private Vector3 endCast;
+	private RaycastHit2D simbaJump;
 
     void Start()
     {
@@ -28,30 +28,29 @@ public class Jump : MonoBehaviour
     }
 
     void Update()
-    {
-        Debug.DrawLine(startCast, endCast, Color.red);
+	{
         playerCurrentPosition = rb.transform.position;
         startCast = playerCurrentPosition;
         endCast = startCast;
-        startCast.y -= 0.65f;
-        endCast.y -= 0.75f;
-        Debug.Log(rb.transform.position);
+        startCast.y -= 0.85f;
+        endCast.y -= 0.95f;
         if (grounded == false)
         {
              
-            RaycastHit2D simbaJump = Physics2D.Linecast(startCast, endCast);
+            simbaJump = Physics2D.Linecast(startCast, endCast);
+			Debug.DrawLine (startCast, endCast);
             if (simbaJump.collider.tag == "Floor")
             {
                 grounded = true;
                 anim.SetBool("isJumping", false);
             }
         }
-        if (grounded && Input.GetButtonDown("Jump"))
+        else if (grounded && Input.GetButtonDown("Jump"))
         {
 			anim.SetBool ("isJumping", true);
 			Jumped ();
          }            
-       /*  else if (!grounded && rb.velocity.y == 0)
+         /*  else if (!grounded && rb.velocity.y == 0)
          {
             grounded = true;
          }*/
