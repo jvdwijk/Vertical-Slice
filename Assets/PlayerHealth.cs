@@ -4,8 +4,9 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public Sprite i;
-    public float health = 300;
+/*    */
+//public Sprite i;
+    public float health = 6;
 
     void Update()
     {
@@ -25,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.transform.tag == "sukkel")
         {
             
-            health -= 100;
+            health -= 1;
         }
     }
 }
