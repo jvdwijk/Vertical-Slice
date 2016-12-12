@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
+    private bool facingRight;
     [SerializeField]
     private float speed = 5;
     private Rigidbody2D rb;
@@ -12,6 +13,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
 		anim = gameObject.GetComponent<Animator>();
+        facingRight = true;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +24,7 @@ public class Movement : MonoBehaviour {
 		}
         if (Input.GetKey(KeyCode.D))
         {
+
 			anim.SetBool ("isRunning", true);
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
@@ -30,5 +33,22 @@ public class Movement : MonoBehaviour {
 			anim.SetBool ("isRunning", true);
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
+        if(Input.GetKey(KeyCode.D) && facingRight == false)
+        {
+            Flip();
+            facingRight = true;
+        }
+        if(Input.GetKey(KeyCode.A) && facingRight == true)
+        {
+            Flip();
+            facingRight = false;
+        }
+    }
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

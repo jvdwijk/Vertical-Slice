@@ -9,7 +9,7 @@ public class Jump : MonoBehaviour
 	[SerializeField]
 	protected float jumpPower = 1750f;
     protected Rigidbody2D rb;
-	private Animator anim;
+	protected Animator anim;
     [SerializeField]
     private Vector2 playerCurrentPosition;
     private Vector3 startCast;
