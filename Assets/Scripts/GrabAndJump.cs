@@ -3,9 +3,9 @@ using System.Collections;
 
 public class GrabAndJump : Jump {
 
-	private bool hanging = false;
-    private Movement movement;
-
+	public bool hanging = false;
+    public Movement movement;
+    private GameObject obj;//hier ff doen voor de cube
     void Start()
     {
         anim = GetComponent<Animator>();
