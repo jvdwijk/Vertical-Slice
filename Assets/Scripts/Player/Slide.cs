@@ -3,13 +3,19 @@ using System.Collections;
 
 public class Slide : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	private Animator anim;
+
+	void Start()
+	{
+		anim = GetComponent<Animator> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnTriggerEnter2d(Collider2D other)
+	{
+		if(other.CompareTag ("Slide"))
+		{
+			anim.SetBool ("isSliding", true);
+		}
+
 	}
 }
