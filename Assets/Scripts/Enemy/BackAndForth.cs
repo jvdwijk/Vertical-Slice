@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class BackAndForth : MonoBehaviour
 {
 	private float timer;
-    public Renderer rend;
-    public float movementSpeed = 10f;
-    public Rigidbody2D rb;
-    int random;
+	private Renderer rend;
+	[SerializeField]
+	private float movementSpeed = 10f;
+	private Rigidbody2D rb;
+    private int random;
 
     void Start()
     {
