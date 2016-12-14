@@ -16,6 +16,9 @@ public class Jump : MonoBehaviour
     private Vector3 endCast;
 	[SerializeField]
 	private RaycastHit2D simbaJump;
+	public bool getGrounded{
+		get{ return grounded;}
+	}
 
     void Start()
     {
@@ -55,15 +58,14 @@ public class Jump : MonoBehaviour
         }
         else if (grounded && Input.GetButtonDown("Jump"))
         {
-			anim.SetBool ("isJumping", true);
 			Jumped ();
          }            
-         /*  */
     }
 
 	protected void Jumped()
 	{
-		rb.AddForce(transform.up * jumpPower);
+		anim.SetBool ("isJumping", true);
 		grounded = false;
+		rb.AddForce(transform.up * jumpPower);
 	}
 }

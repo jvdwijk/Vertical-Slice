@@ -3,12 +3,13 @@ using System.Collections;
 
 public class GrabAndJump : Jump {
 
-	public bool hanging = false;
     public Movement movement;
     private GameObject obj;//hier ff doen voor de cube
+	private ColliderCheck colliderCheck;
 
     void Start()
     {
+		colliderCheck = GetComponentInChildren<ColliderCheck> ();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
@@ -17,22 +18,27 @@ public class GrabAndJump : Jump {
 
     void Update()
     {
-        if (hanging)
+        if (colliderCheck.hanging)
         {
 			movement.enabled = false;
 			rb.velocity = Vector3.zero;
 			rb.gravityScale = 0;
-
+			anim.SetBool ("isJumping", false);
             anim.SetBool("isSwinging", true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jumped();
-                hanging = false;
+                colliderCheck.hanging = false;
                 rb.gravityScale = 2.5f;
 				movement.enabled = true;
                 anim.SetBool("isSwinging", false);
-                anim.SetBool("isJumping", true);
             }
         }
+		if(!colliderCheck.hanging)
+		{
+			rb.gravityScale = 2.5f;
+			movement.enabled = true;
+			anim.SetBool("isSwinging", false);
+		}
     }
 }
