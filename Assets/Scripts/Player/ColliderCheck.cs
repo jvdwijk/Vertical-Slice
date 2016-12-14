@@ -3,13 +3,21 @@ using System.Collections;
 
 public class ColliderCheck : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public bool hanging;
+
+	void OnTriggerEnter2D (Collider2D other) 	
+	{
+		if(other.gameObject.CompareTag ("rocks"))
+		{
+			Debug.Log ("test");
+			hanging = true;
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerExit2D (Collider2D other) 
+	{
+		if(other.gameObject.CompareTag ("rocks"))
+		{
+			hanging = false;
+		}
 	}
 }
