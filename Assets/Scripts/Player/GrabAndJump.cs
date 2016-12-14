@@ -6,6 +6,7 @@ public class GrabAndJump : Jump {
 	public bool hanging = false;
     public Movement movement;
     private GameObject obj;//hier ff doen voor de cube
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -18,6 +19,10 @@ public class GrabAndJump : Jump {
     {
         if (hanging)
         {
+			movement.enabled = false;
+			rb.velocity = Vector3.zero;
+			rb.gravityScale = 0;
+
             anim.SetBool("isSwinging", true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -28,17 +33,6 @@ public class GrabAndJump : Jump {
                 anim.SetBool("isSwinging", false);
                 anim.SetBool("isJumping", true);
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("rocks"))
-        {
-			movement.enabled = false;
-            hanging = true;
-            rb.velocity = Vector3.zero;
-            rb.gravityScale =0;
         }
     }
 }
