@@ -17,7 +17,7 @@ public class Hands : GrabAndJump {
         if (other.CompareTag("rocks"))
         {
             movement.enabled = false;
-            hanging = true;
+          //  hanging = true;
             rb.velocity = Vector3.zero;
             rb.gravityScale = 0;
         }
