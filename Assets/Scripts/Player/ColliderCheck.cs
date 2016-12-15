@@ -19,9 +19,10 @@ public class ColliderCheck : MonoBehaviour {
 		}
 	}
 
-	void OnColliderEnter2D (Collision2D other) 	
+	void OnCollisionEnter2D (Collider2D other) 	
 	{
-		if(other.gameObject.CompareTag ("slide"))
+		Debug.Log ("appel");
+		if(other.gameObject.CompareTag ("Slide"))
 		{
 			anim.SetTrigger ("slide");
 		}
