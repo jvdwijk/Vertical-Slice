@@ -4,11 +4,13 @@ using System.Collections;
 public class IgnoreLayer : MonoBehaviour {
 
 	[SerializeField]
-	private int LayerOne;
+	private int[] otherLayer;
 	[SerializeField]
-	private int LayerTwo;
+	private int playerLayer;
 
 	void Start () {
-		Physics2D.IgnoreLayerCollision(LayerOne, LayerTwo);
+		for (int i = 0; i < otherLayer.Length; i++) {
+			Physics2D.IgnoreLayerCollision(otherLayer[i], playerLayer);
+		}
 	}
 }
