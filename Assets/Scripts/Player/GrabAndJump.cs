@@ -4,7 +4,6 @@ using System.Collections;
 public class GrabAndJump : Jump {
 
     public Movement movement;
-    private GameObject obj;//hier ff doen voor de cube
 	private ColliderCheck colliderCheck;
 
     void Start()
