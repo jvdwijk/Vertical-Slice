@@ -4,11 +4,11 @@ using System.Collections;
 public class GrabAndJump : Jump {
 
     public Movement movement;
-	private ColliderCheck colliderCheck;
+	private HangingCheck hangingCheck;
 
-    void Start()
+	void Start()
     {
-		colliderCheck = GetComponentInChildren<ColliderCheck> ();
+		hangingCheck = GetComponentInChildren<HangingCheck> ();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
@@ -17,7 +17,7 @@ public class GrabAndJump : Jump {
 
     void Update()
     {
-        if (colliderCheck.hanging)
+		if (hangingCheck.getSetHanging)
         {
 			movement.enabled = false;
 			rb.velocity = Vector3.zero;
@@ -27,13 +27,13 @@ public class GrabAndJump : Jump {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jumped();
-                colliderCheck.hanging = false;
+				hangingCheck.getSetHanging = false;
                 rb.gravityScale = 2.5f;
 				movement.enabled = true;
                 anim.SetBool("isSwinging", false);
             }
         }
-		if(!colliderCheck.hanging)
+		if(!hangingCheck.getSetHanging && !anim.GetBool ("isSliding"))
 		{
 			rb.gravityScale = 2.5f;
 			movement.enabled = true;

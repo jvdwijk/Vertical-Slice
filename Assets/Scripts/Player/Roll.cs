@@ -6,24 +6,24 @@ public class Roll : MonoBehaviour {
 	private Animator anim;
 	private Movement movement;
 	private Jump groundCheck;
-	private ColliderCheck grab;
+	private HangingCheck grab;
 	private int direction;
 	private int count = 0;
 
 	void Start () {
 		movement = GetComponent<Movement> ();
 		groundCheck = GetComponent<Jump> ();
-		grab = GetComponentInChildren<ColliderCheck> ();
+		grab = GetComponentInChildren<HangingCheck> ();
 		anim = GetComponent<Animator> ();
 	}
 
 	void Update () {
-		if(Input.GetKey (KeyCode.A) && Input.GetKeyDown (KeyCode.S) && !grab.hanging && groundCheck.getGrounded)
+		if(Input.GetKey (KeyCode.A) && Input.GetKeyDown (KeyCode.S) && !grab.getSetHanging && groundCheck.getGrounded)
 		{
 			direction = -1;
 			RollAway ();
 		}
-		else if(Input.GetKey (KeyCode.D) && Input.GetKeyDown (KeyCode.S) && !grab.hanging && groundCheck.getGrounded)
+		else if(Input.GetKey (KeyCode.D) && Input.GetKeyDown (KeyCode.S) && !grab.getSetHanging && groundCheck.getGrounded)
 		{
 			direction = 1;
 			RollAway ();
