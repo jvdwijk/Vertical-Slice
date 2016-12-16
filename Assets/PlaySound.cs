@@ -9,7 +9,6 @@ public class PlaySound : MonoBehaviour {
 
 	void Update () {
 		if (playSound == true) {
-			Debug.Log ("afds");
 			ratSound.Play ();
 		}
 	}
