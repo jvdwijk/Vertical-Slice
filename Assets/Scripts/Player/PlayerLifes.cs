@@ -8,16 +8,16 @@ public class PlayerLifes : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         lifes = 4;
+		if(!PlayerPrefs.HasKey ("lifes"))
+		{
+			PlayerPrefs.SetInt ("lifes",lifes);
+		}
+		lifes = PlayerPrefs.GetInt ("lifes");
         GameOver = false;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            lifes--;
-        }
-	    if(lifes < 0 && GameOver == false)
+	    if(lifes <= 0 && GameOver == false)
         {
             GameOver = true;
         }
@@ -25,7 +25,6 @@ public class PlayerLifes : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-		
         if (other.CompareTag("1up"))
         {
             lifes++;

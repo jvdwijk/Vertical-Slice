@@ -18,16 +18,16 @@ public class PlayerHealth : MonoBehaviour
     }
     void levelReset()
     {
-        SceneManager.LoadScene("Djanco");
+		PlayerPrefs.SetInt ("lifes",PlayerPrefs.GetInt ("lifes") - 1);
+        SceneManager.LoadScene(1);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+   /* void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.tag == "sukkel")
+		if (other.transform.tag == "sukkel" || other.gameObject.CompareTag ("enemy"))
         {
-            
-            health -= 1;
+			Destroy (other.gameObject);
         }
-    }
+    }*/
 }
 

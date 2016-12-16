@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ButtonSelect : SceneChanger {
 
     public GameObject image;
@@ -12,7 +13,7 @@ public class ButtonSelect : SceneChanger {
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Application.LoadLevel("Djanco");
+			SceneManager.LoadScene(1);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {

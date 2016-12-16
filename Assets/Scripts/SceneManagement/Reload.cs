@@ -10,6 +10,7 @@ public class Reload : MonoBehaviour {
 	{
 		if(Input.GetKeyUp (KeyCode.R))
 		{
+			PlayerPrefs.SetInt ("lifes",PlayerPrefs.GetInt ("lifes") - 1);
 			ChangeScene ();
 		}
 	}

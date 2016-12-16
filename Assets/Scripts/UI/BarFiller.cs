@@ -13,7 +13,6 @@ public class BarFiller : MonoBehaviour {
 
 	private void IncreaseBar()
 	{
-		Debug.Log ("asfhiuog");
 		if(staminaBar.fillAmount < 1)
 			staminaBar.fillAmount += 1/6f;
 	}
