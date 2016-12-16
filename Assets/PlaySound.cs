@@ -7,10 +7,6 @@ public class PlaySound : MonoBehaviour {
 	[SerializeField]
 	private AudioSource ratSound;
 
-	void Start () {
-	
-	}
-
 	void Update () {
 		if (playSound == true) {
 			Debug.Log ("afds");
