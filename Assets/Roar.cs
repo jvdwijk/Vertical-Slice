@@ -4,6 +4,8 @@ using System.Collections;
 public class Roar : MonoBehaviour
 {
     private Animator anim;
+	[SerializeField]
+	private AudioSource roarSound;
    
    
     
@@ -19,7 +21,7 @@ public class Roar : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
             anim.Play("Roar");
-
+			roarSound.Play ();
         }
         
     }
