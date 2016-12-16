@@ -19,11 +19,11 @@ public class EnemyJump : MonoBehaviour {
         Debug.Log("whooped");
     }
 
-    void OnBecameInvisible()
+    /*void OnBecameInvisible()
     {
         DestroyObject(this.gameObject);
         visible = false;    
-    }    
+    }    */
 
         
 
