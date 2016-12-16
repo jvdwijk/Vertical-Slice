@@ -34,6 +34,13 @@ public class Jump : MonoBehaviour
 
     void Update()
 	{
+
+        if (transform.position.y <= -20)
+        {
+
+            Application.LoadLevel("End Scene");
+        }
+
         playerCurrentPosition = rb.transform.position;
         startCast = playerCurrentPosition;
         endCast = startCast;
